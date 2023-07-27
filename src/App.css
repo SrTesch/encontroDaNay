@@ -1,8 +1,13 @@
 :root{
-  --cor0: #ffc0cb;
-  --cor1: #06badd;
-  --cor2: #0885a5;
-  --cor3: #5e5e5e;
+  --cor0: white;
+  --cor1: #A17872;
+  --cor2: #06badd;
+  --cor3: #0885a5;
+  --cor4: #5e5e5e;
+}
+
+body{
+  background-color: black;
 }
 
 *{
@@ -13,8 +18,16 @@
 
 header{
   text-align: center;
-  color: #5e5e5e;
-  background-color: #ffc0cb;
+  color: white;
+  background-color: var(--cor1);
+  text-shadow: 1px 1px 1px #000000c0;
+  position: relative;
+  top: 0;
+}
+
+main{
+  text-align: center;
+  color: white;
 }
 
 footer{
@@ -26,19 +39,23 @@ footer{
   width: 100%;
   background-color: #636363;
   color: white;
-  padding: 10px;
+  padding: 10px 0px;
+  position: relative;
+  bottom: 0;
 }
 
 .divisor{
   background-color: white;
-  height: 80%;
-  width: 2.8px;
+  height: 75px;
+  width: 2px;
 }
+
 
 .itemFooter{
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   margin-top: 8px;
 }
 
@@ -48,8 +65,12 @@ footer{
   align-items: center;
   color: white;
   text-decoration: none;
+  transition-duration: .5s;
+  border-radius: 5px;
+  padding: 1px 3px;
+  margin-bottom: 2px;
 }
 
 .linkFooter:hover{
-  text-shadow: 1px 1px 1px var(--cor0);
+  box-shadow: 1px 1px 1px var(--cor1);
 }
