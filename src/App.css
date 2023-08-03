@@ -1,9 +1,10 @@
 :root{
-  --cor0: white;
-  --cor1: #A17872;
-  --cor2: #06badd;
-  --cor3: #0885a5;
-  --cor4: #5e5e5e;
+  --cor0: #fff;
+  --cor1: #48A9B8;
+  --cor2 : #2F636B;
+  --cor3: #B8AF6C;
+  --cor4: #B85A87;
+  --cor5: #6B2A49;
 }
 
 body{
@@ -19,7 +20,7 @@ body{
 header{
   text-align: center;
   color: white;
-  background-color: var(--cor1);
+  background-color: var(--cor5);
   text-shadow: 1px 1px 1px #000000c0;
   position: relative;
   top: 0;
@@ -37,15 +38,15 @@ footer{
   align-items: center;
   gap: 15px;
   width: 100%;
-  background-color: #636363;
-  color: white;
+  background-color: var(--cor5);
+  color: var(--cor0);
   padding: 10px 0px;
   position: relative;
   bottom: 0;
 }
 
 .divisor{
-  background-color: white;
+  background-color: var(--cor0);
   height: 75px;
   width: 2px;
 }
@@ -63,7 +64,7 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--cor0);
   text-decoration: none;
   transition-duration: .5s;
   border-radius: 5px;

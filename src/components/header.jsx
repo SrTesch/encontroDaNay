@@ -1,9 +1,9 @@
 import React from "react";
-
+import logo from '../images/logo325x325.png'
 export default function Header(props){
     return(
         <header>
-            <h1>Mulheres + conectadas</h1>
+            <img src={logo} alt="logo da marca Mulheres + Conectadas"/>
         </header>
     )
 }
