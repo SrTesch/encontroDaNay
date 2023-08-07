@@ -2,11 +2,11 @@ import React from "react";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Link } from "react-router-dom";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-
+import logo from "../images/logo325x325.png"
 export default function Footer(props){
     return(
         <footer>
-            <article className="footer-content">Mulheres <br />+ <br />Conectadas</article>
+            <article className="footer-content"><img src={logo} alt="logo Braba" id="logoFooter"/></article>
             <div className="divisor" style={{color:"#00000000"}}>.</div>
             <aside className="footer-content">
                 <h3>Contato:</h3>

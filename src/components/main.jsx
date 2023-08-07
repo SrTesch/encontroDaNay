@@ -1,17 +1,26 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import fotoNay from '../images/nay1.png'
 export default function Main(props){
     return(
         <main>
-            <h1>Mulheres Conectadas</h1>
-            por
-            <br />
-            Nayara Tesch<br />
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor ullam provident, amet nisi at harum architecto quisquam officiis assumenda similique non perspiciatis vel. Natus harum suscipit, obcaecati debitis vitae quos.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi corporis earum minima itaque amet ipsum nesciunt, deleniti suscipit voluptates. Vitae placeat voluptas sit illum molestias autem explicabo voluptate architecto asperiores? <br /><br /><br /><br /> <br /><br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, harum. Quas minima magnam voluptates aliquam omnis quaerat facilis nam ut corporis, debitis accusamus fugiat at, ullam ipsum nostrum, modi autem!
-            <br /> <br /> <br /> <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt totam esse molestias debitis odio ratione laudantium aliquam! Doloribus exercitationem vel, incidunt, modi asperiores nostrum, voluptatibus possimus ipsum excepturi dignissimos quidem!
+            <h1 className="montserrat title" >Mulheres Conectadas</h1>
+            <p>por</p>
+            <p className="borel nome">Nayara Tesch</p>
+            <section id="texts">
+                <p id="motivational" className="montserrat">Você não está sozinha!</p>
+                <p id="explanation" className="montserrat">Nosso projeto foi pensado exclusivamente para mulheres que não querem desistir. <br />Queremos ver você se tornar uma nova mulher, capaz de superar todas as barreiras e, finalmente, brilhar.</p>
+                <p id="tobutton" className="roboto">Aperte no botão abaixo para fazer a inscrição pelo whatsapp!</p>
+                <div className="buttonWppdiv">
+                    <Link to="https://wa.me/558382204431?text=Olá,%20queria%20saber%20mais%20sobre%20o%20encontro%20Mulheres%20+%20Conectadas!"
+                        target="_blank" className="buttonWpp">Inscreva-se agora!
+                    </Link>
+                </div>
+            </section>
+
+            <section className="presentation">
+                <img src={fotoNay} alt="Foto Nayara Tesch" id="fotoNay"/>
+            </section>
         </main>
     )
 }
