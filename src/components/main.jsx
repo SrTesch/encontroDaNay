@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import fotoNay from '../images/nay1.png'
-// const twilio = require('twilio');
 
 export default function Main(props){
-    // const accountSid = 'SK71760ee6a5055ac37782fb04016f3ddc';
-    // const authToken = 'uXcOMKo6Jpj5PoS7hjybGKUGp7NRgCYZ';
-    // const client = new twilio(accountSid, authToken);
 
     const [form, setForm] = useState(false);
     
@@ -53,9 +49,8 @@ export default function Main(props){
 
     return(
         <main>
-            <h1 className="montserrat title" >Mulheres Conectadas</h1>
-            <p>por</p>
-            <p className="borel nome">Nayara Tesch</p>
+            <h1 className="montserrat title" style={{marginBottom: "15px"}}>Cura Emocional</h1>
+            {/*<p className="borel nome">Nayara Tesch</p>*/}
             <section id="texts">
                 <p id="motivational" className="montserrat">Você não está sozinha!</p>
                 <p id="explanation" className="montserrat">Nosso projeto foi pensado exclusivamente para mulheres que não querem desistir. <br />Queremos ver você se tornar uma nova mulher, capaz de superar todas as barreiras e, finalmente, brilhar.</p>
@@ -64,53 +59,55 @@ export default function Main(props){
                     <button onClick={showForm} className="buttonWpp">Inscreva-se</button>
                 </div>
                 {form && (
-                    <form onSubmit={handleInfos}>
-                        <label>
-                            Nome:
-                            <input
-                            type="text"
-                            placeholder="Digite seu nome"
-                            className="inputForm"
-                            value={name}
-                            onChange={e => { setName(e.target.value)}}
-                            required
-                            />
-                        </label>
-                        <label>
-                            Email:
-                            <input
-                            type="text"
-                            placeholder="Digite seu email"
-                            className="inputForm"
-                            value={email}
-                            onChange={e => { setEmail(e.target.value)}}
-                            required
-                            />
-                        </label>
-                        <label>
-                            CPF:
-                            <input
-                            type="text"
-                            placeholder="Digite seu cpf"
-                            className="inputForm"
-                            value={cpf}
-                            onChange={e => { setCpf(e.target.value)}}
-                            required
-                            />
-                        </label>
-                        <label>
-                            Profissão:
-                            <input
-                            type="text"
-                            placeholder="Digite sua profissão"
-                            className="inputForm"
-                            value={profissao}
-                            onChange={e => { setProfissao(e.target.value)}}
-                            required
-                            />
-                        </label>
-                        <button className="confirmButton">Enviar</button>
-                    </form>
+                    <div className="divForm">
+                        <form onSubmit={handleInfos} id="formParticipante">
+                            <label>
+                                Nome:
+                                <input
+                                type="text"
+                                placeholder="Digite seu nome"
+                                className="inputForm"
+                                value={name}
+                                onChange={e => { setName(e.target.value)}}
+                                required
+                                />
+                            </label>
+                            <label>
+                                Email:
+                                <input
+                                type="text"
+                                placeholder="Digite seu email"
+                                className="inputForm"
+                                value={email}
+                                onChange={e => { setEmail(e.target.value)}}
+                                required
+                                />
+                            </label>
+                            <label>
+                                CPF:
+                                <input
+                                type="text"
+                                placeholder="Digite seu cpf"
+                                className="inputForm"
+                                value={cpf}
+                                onChange={e => { setCpf(e.target.value)}}
+                                required
+                                />
+                            </label>
+                            <label>
+                                Profissão:
+                                <input
+                                type="text"
+                                placeholder="Digite sua profissão"
+                                className="inputForm"
+                                value={profissao}
+                                onChange={e => { setProfissao(e.target.value)}}
+                                required
+                                />
+                            </label>
+                            <button className="confirmButton">Enviar</button>
+                        </form>
+                    </div>
                 )}
             </section>
 
