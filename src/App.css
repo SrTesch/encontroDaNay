@@ -84,6 +84,25 @@ main{
   font-size: 1.5em;
   text-decoration: none;
   color: var(--cor0);
+  background-color: #00000000;
+  border: none;
+}
+
+
+label{
+  display: block;
+  margin-bottom: 8px;
+}
+
+.confirmButton{
+  font-size: 1.5em;
+  text-decoration: none;
+  color: var(--cor0);
+  background-color: var(--cor6);
+  border: none;
+  padding: 7px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .presentation{

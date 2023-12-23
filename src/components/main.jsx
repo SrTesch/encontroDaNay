@@ -1,8 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import fotoNay from '../images/nay1.png'
+// const twilio = require('twilio');
+
 export default function Main(props){
+    // const accountSid = 'SK71760ee6a5055ac37782fb04016f3ddc';
+    // const authToken = 'uXcOMKo6Jpj5PoS7hjybGKUGp7NRgCYZ';
+    // const client = new twilio(accountSid, authToken);
+
+    const [form, setForm] = useState(false);
     
+    const showForm = e =>{
+        setForm(!form);
+    }
+    
+    const [name, setName] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [email, setEmail] = useState('');
+    const [profissao, setProfissao] = useState('');
+
+    
+    const createMessage =  () =>{
+        const message = `Nome: ${name};
+        CPF: ${cpf};
+        Email: ${email};
+        Profissão: ${profissao}`;
+        return message;
+    }
+    const instanceId = "HQX4H8J5WVE4WY7ONGOKL7A7"
+    const instanceToken = "494fa1b2-9ac5-4b10-9ccb-619d4f38a354"
+    const userToken = "d0a32fae-3e1d-4e4a-973e-1d6c24d772c5"
+
+    const handleInfos = async e =>{
+        e.preventDefault();
+        const message = createMessage();
+        const url = "https://api.gzappy.com/v1/message/send-message";
+        const response = await fetch(url, {
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'user_token_id': userToken,
+            },
+            body: JSON.stringify({
+                instance_id:instanceId,
+                instance_token: instanceToken,
+                message: [message],
+                phone: "558382204431"
+            })
+        })
+        console.log(response);
+    }
+
+
     return(
         <main>
             <h1 className="montserrat title" >Mulheres Conectadas</h1>
@@ -11,12 +59,59 @@ export default function Main(props){
             <section id="texts">
                 <p id="motivational" className="montserrat">Você não está sozinha!</p>
                 <p id="explanation" className="montserrat">Nosso projeto foi pensado exclusivamente para mulheres que não querem desistir. <br />Queremos ver você se tornar uma nova mulher, capaz de superar todas as barreiras e, finalmente, brilhar.</p>
-                <p id="tobutton" className="roboto">Aperte no botão abaixo para fazer a inscrição pelo whatsapp!</p>
+                <p id="tobutton" className="roboto">Preencha agora o formulário para a lista de espera do conectadas 2024!</p>
                 <div className="buttonWppdiv">
-                    <Link to="https://wa.me/558382204431?text=Olá,%20queria%20saber%20mais%20sobre%20o%20encontro%20Mulheres%20+%20Conectadas!"
-                        target="_blank" className="buttonWpp">Inscreva-se agora!
-                    </Link>
+                    <button onClick={showForm} className="buttonWpp">Inscreva-se</button>
                 </div>
+                {form && (
+                    <form onSubmit={handleInfos}>
+                        <label>
+                            Nome:
+                            <input
+                            type="text"
+                            placeholder="Digite seu nome"
+                            className="inputForm"
+                            value={name}
+                            onChange={e => { setName(e.target.value)}}
+                            required
+                            />
+                        </label>
+                        <label>
+                            Email:
+                            <input
+                            type="text"
+                            placeholder="Digite seu email"
+                            className="inputForm"
+                            value={email}
+                            onChange={e => { setEmail(e.target.value)}}
+                            required
+                            />
+                        </label>
+                        <label>
+                            CPF:
+                            <input
+                            type="text"
+                            placeholder="Digite seu cpf"
+                            className="inputForm"
+                            value={cpf}
+                            onChange={e => { setCpf(e.target.value)}}
+                            required
+                            />
+                        </label>
+                        <label>
+                            Profissão:
+                            <input
+                            type="text"
+                            placeholder="Digite sua profissão"
+                            className="inputForm"
+                            value={profissao}
+                            onChange={e => { setProfissao(e.target.value)}}
+                            required
+                            />
+                        </label>
+                        <button className="confirmButton">Enviar</button>
+                    </form>
+                )}
             </section>
 
             <section className="presentation">
