@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import fotoNay from '../images/nay1.png'
-// const twilio = require('twilio');
 
 export default function Main(props){
-    // const accountSid = 'SK71760ee6a5055ac37782fb04016f3ddc';
-    // const authToken = 'uXcOMKo6Jpj5PoS7hjybGKUGp7NRgCYZ';
-    // const client = new twilio(accountSid, authToken);
 
     const [form, setForm] = useState(false);
-    
+    const [confirmation, setConfirmation] = useState(false);
+    const [resMessage, setResMessage] = useState('');
+    const [backColor, setBackColor] = useState('');
     const showForm = e =>{
         setForm(!form);
     }
@@ -26,28 +24,46 @@ export default function Main(props){
         Profissão: ${profissao}`;
         return message;
     }
+
     const instanceId = "HQX4H8J5WVE4WY7ONGOKL7A7"
     const instanceToken = "494fa1b2-9ac5-4b10-9ccb-619d4f38a354"
     const userToken = "d0a32fae-3e1d-4e4a-973e-1d6c24d772c5"
 
     const handleInfos = async e =>{
         e.preventDefault();
-        const message = createMessage();
-        const url = "https://api.gzappy.com/v1/message/send-message";
-        const response = await fetch(url, {
-            method:'POST',
-            headers:{
-                'Content-Type': 'application/json',
-                'user_token_id': userToken,
-            },
-            body: JSON.stringify({
-                instance_id:instanceId,
-                instance_token: instanceToken,
-                message: [message],
-                phone: "558382204431"
-            })
-        })
-        console.log(response);
+
+        try{
+            const message = createMessage();
+            const url = "https://api.gzappy.com/v1/message/send-message";
+            const response = await fetch(url, {
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json',
+                    'user_token_id': userToken,
+                },
+                body: JSON.stringify({
+                    instance_id:instanceId,
+                    instance_token: instanceToken,
+                    message: [message],
+                    phone: "558382204431"
+                })
+            });
+            if(!response.ok){
+                throw new Error (`Erro na requisição: ${response.statusText}`)
+            }
+            console.log(response);
+            setBackColor("green")
+            setResMessage("Dados enviados com sucesso!")
+            setConfirmation(true)
+            setTimeout(()=>{setConfirmation(false)}, 2000)
+        }catch(error){
+            setBackColor("#900000")
+            setResMessage("Houve um erro ao processar seus dados. Tente novamente mais tarde ou entre em contato no whatsapp!(Tem um link no final da página para falar diretamente comigo!)")
+            setConfirmation(true);
+            setTimeout(()=>{setConfirmation(false)}, 6000)
+
+            console.error("Erro na requisição:", error.message);
+        }
     }
 
 
@@ -65,52 +81,63 @@ export default function Main(props){
                 </div>
                 {form && (
                     <form onSubmit={handleInfos}>
-                        <label>
-                            Nome:
-                            <input
-                            type="text"
-                            placeholder="Digite seu nome"
-                            className="inputForm"
-                            value={name}
-                            onChange={e => { setName(e.target.value)}}
-                            required
-                            />
+                        <label for="name">
+                            Nome
                         </label>
-                        <label>
-                            Email:
-                            <input
-                            type="text"
-                            placeholder="Digite seu email"
-                            className="inputForm"
-                            value={email}
-                            onChange={e => { setEmail(e.target.value)}}
-                            required
-                            />
+                        <input
+                        type="text"
+                        placeholder="Digite seu nome"
+                        className="inputForm"
+                        value={name}
+                        id="name"
+                        onChange={e => { setName(e.target.value)}}
+                        required
+                        />
+                        <label for="email">
+                            Email
                         </label>
-                        <label>
-                            CPF:
+                        <input
+                        type="text"
+                        placeholder="Digite seu email"
+                        className="inputForm"
+                        value={email}
+                        id="email"
+                        onChange={e => { setEmail(e.target.value)}}
+                        required
+                        />
+                        <label for="cpf">
+                            CPF
+                        </label>
                             <input
                             type="text"
                             placeholder="Digite seu cpf"
                             className="inputForm"
                             value={cpf}
+                            id="cpf"
                             onChange={e => { setCpf(e.target.value)}}
                             required
                             />
+                        <label for="prof">
+                            Profissão
                         </label>
-                        <label>
-                            Profissão:
-                            <input
-                            type="text"
-                            placeholder="Digite sua profissão"
-                            className="inputForm"
-                            value={profissao}
-                            onChange={e => { setProfissao(e.target.value)}}
-                            required
-                            />
-                        </label>
+                        <input
+                        type="text"
+                        placeholder="Digite sua profissão"
+                        className="inputForm"
+                        value={profissao}
+                        id="prof"
+                        onChange={e => { setProfissao(e.target.value)}}
+                        required
+                        />
+                        <br />
                         <button className="confirmButton">Enviar</button>
+                        
                     </form>
+                )}
+                {confirmation && (
+                <div className="confirmationModal">
+                    <div className="confirmationText" style={{backgroundColor: backColor}}>{resMessage}</div>
+                </div>
                 )}
             </section>
 
