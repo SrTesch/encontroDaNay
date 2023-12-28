@@ -69,9 +69,8 @@ export default function Main(props){
 
     return(
         <main>
-            <h1 className="montserrat title" >Mulheres Conectadas</h1>
-            <p>por</p>
-            <p className="borel nome">Nayara Tesch</p>
+            <h1 className="montserrat title" style={{marginBottom: "15px"}}>Cura Emocional</h1>
+            {/*<p className="borel nome">Nayara Tesch</p>*/}
             <section id="texts">
                 <p id="motivational" className="montserrat">Você não está sozinha!</p>
                 <p id="explanation" className="montserrat">Nosso projeto foi pensado exclusivamente para mulheres que não querem desistir. <br />Queremos ver você se tornar uma nova mulher, capaz de superar todas as barreiras e, finalmente, brilhar.</p>
