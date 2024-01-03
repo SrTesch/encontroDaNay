@@ -1,7 +1,7 @@
 import express from 'express';
 import { Request, Response } from 'express';
 import { createServer } from 'http';
-
+import participantesRouter from './src/routes/participantes'
 const app = express();
 const server = createServer(app);
 
@@ -20,6 +20,9 @@ app.use((req, res, next) => {
 app.get("/", (req: Request, res: Response) =>{
     res.status(200).json("Eu sou lindo na requisição base");
 })
+
+app.use("/participantes", participantesRouter);
+
 
 server.listen(3001, () => {
     console.log('Servidor ouvindo na porta 3001');
