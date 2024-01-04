@@ -1,3 +1,4 @@
+<h1>Documentação do back</h1>
 Aqui eu vou deixar separado as possíveis urls !!
 
 <h1>/participantes</h1>
@@ -8,6 +9,7 @@ Aqui eu vou deixar separado as possíveis urls !!
 será necessario enviar os dados no corpo da requisição!</p>
 <p>Algo assim: {cpf: "11111111111", nome: "example", tel: "021111111111", prof: "Desenvolvedor"} <br>
 Todos os atributos são do tipo string </p>
+<p>portanto a combinação da url fica: "{urlpadrao}/participantes/novo"</p>
 
 <bolder>/deletar</bolder>
 <p>Nesta url, você consegue deletar um participante do banco! <br>
