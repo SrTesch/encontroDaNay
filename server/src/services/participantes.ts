@@ -1,5 +1,5 @@
 import { OkPacket } from "mysql";
-import {pool } from "../config/database";
+import { pool } from "../config/database";
 import { Participante } from "../models/participantes";
 
 function isOkPacket(obj: any): obj is OkPacket {
@@ -45,9 +45,7 @@ const participantesServices = {
             const conn = await pool.getConnection();
             const [rows] = await conn.execute('update participantes set situacao = ? where cpf = ?', [status, cpf]);
             console.log(rows);
-            if(isOkPacket(rows[0])){
-                console.log("toma aqui as infos:",(rows[0] as OkPacket).info);
-            }
+            
             return rows;
            
         }catch(error){

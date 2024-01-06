@@ -2,6 +2,7 @@ import express from 'express';
 import { Request, Response } from 'express';
 import { createServer } from 'http';
 import participantesRouter from './src/routes/participantes'
+import eventoRouter from './src/routes/evento'
 const app = express();
 const server = createServer(app);
 
@@ -23,6 +24,7 @@ app.get("/", (req: Request, res: Response) =>{
 
 app.use("/participantes", participantesRouter);
 
+app.use("/evento", eventoRouter);
 
 server.listen(3001, () => {
     console.log('Servidor ouvindo na porta 3001');
