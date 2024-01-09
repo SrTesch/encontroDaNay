@@ -1,6 +1,5 @@
-create database MulheresConectadas;
-
-use MulheresConectadas;
+create database encontroDaNay;
+use encontroDaNay;
 
 
 create table participantes(
@@ -20,3 +19,15 @@ delete from participantes;
 delete from participantes where cpf = "11111111111";
 
 update participantes set situacao = "Confirmado" where cpf = "11111111111";
+
+create table evento(
+	idEvent int primary key auto_increment,
+    nome varchar(100) not null,
+    preco int not null,
+    horario datetime not null,
+    localizacao varchar(200) not null
+);
+
+insert into evento (nome, preco, horario, localizacao) VALUES("Teste2", 50, "2024-01-09 04:22:00", "Midori");
+
+select * from evento order by idEvent desc limit 1;
