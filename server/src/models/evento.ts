@@ -11,4 +11,8 @@ export class Evento{
         this.preço = preço;
         this.nome = nome;
     }
+
+    setId(id : number){
+        this.id = id;
+    }
 }

@@ -30,4 +30,4 @@ create table evento(
 
 insert into evento (nome, preco, horario, localizacao) VALUES("Teste2", 50, "2024-01-09 04:22:00", "Midori");
 
-select * from evento order by idEvent desc limit 1;
+select * from evento order by idEvent desc limit 1 ;

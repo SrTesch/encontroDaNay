@@ -26,11 +26,16 @@ const eventoController = {
       const result = await eventoServices.newEvent(eventInstance);
       if (Array.isArray(result) && result.length > 0) {
         console.log("Evento criado com sucesso! \nResultado da query: ", result);
+        if(Array.isArray(result) && "insertId" in result[0]){
+          eventInstance.setId(result[0].insertId)
+          console.log("passei pelo if e estou setando o id")
+        }
         return res.status(201).json({ result: result, insertedData: eventInstance });
       }
     } catch (error) {
       console.log("Erro ao Criar um novo evento!", error);
-      return res.status(500).json({ msg: "Internal Server Error!", error: error });
+      throw new Error("erro ao crirar evento")
+      // res.status(500).json({ msg: "Internal Server Error!", error: error });
     }
   },
 };

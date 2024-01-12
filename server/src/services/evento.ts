@@ -13,7 +13,7 @@ const eventoServices = {
 
             if (result.length > 0) {
                 console.log("Dados do evento obtidos com sucesso!\n", result[0])
-                return result;
+                return result[0];
             }
             
         } catch (error) {
@@ -24,20 +24,19 @@ const eventoServices = {
     newEvent : async (event : Evento)=>{
         try{
             const conn = await pool.getConnection();
-            const result = await conn.query("insert into eventos (nome, preco, local, data) VALUES (?,?,?,?)",
+            const result = await conn.query("insert into evento (nome, preco, localizacao, horario) VALUES (?,?,?,?)",
             [event.nome, event.preço, event.local, event.dataHora]);
-            console.log("Resultado da query:", result);
             if(result.length > 0)
                 return result;
         }catch(error){
             console.log('Erro ao criar novo evento');
-            return error;
+            throw new Error(`${error}`);
         }
     },
     updateEvent : async (event: Evento)=>{
         try{
             const conn = await pool.getConnection();
-            // let eventoEncontrado = await conn.query("update eventos set ");
+            //let eventoEncontrado = await conn.query("update eventos set ");
         }catch(error){
             console.log('Erro ao editar evento com id:', event.id);
             return error;
