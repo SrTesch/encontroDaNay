@@ -26,6 +26,7 @@ const eventoServices = {
             const conn = await pool.getConnection();
             const result = await conn.query("insert into evento (nome, preco, localizacao, horario) VALUES (?,?,?,?)",
             [event.nome, event.preço, event.local, event.dataHora]);
+            conn.release();
             if(result.length > 0)
                 return result;
         }catch(error){
@@ -36,7 +37,23 @@ const eventoServices = {
     updateEvent : async (event: Evento)=>{
         try{
             const conn = await pool.getConnection();
-            //let eventoEncontrado = await conn.query("update eventos set ");
+
+            //Here I'm just adding a condition to change things or not, bc the user can sand just the things that he want to change
+            let updateFields = ""
+            if(event.nome)
+                updateFields += `nome = ${event.nome}, `;
+            if(event.dataHora)
+                updateFields += `horario = ${event.dataHora}, `
+            if(event.local)
+                updateFields += `localizacao = ${event.local}, `
+            if(event.preço)
+                updateFields += `preco = ${event.preço}, `
+            updateFields = updateFields.replace(/,\s*$/, '');
+
+            let eventoEncontrado = await conn.query(`update evento set ${updateFields} where idEvent = ${event.id}`);
+            conn.release();
+            if(eventoEncontrado.length > 0)
+                return eventoEncontrado
         }catch(error){
             console.log('Erro ao editar evento com id:', event.id);
             return error;
