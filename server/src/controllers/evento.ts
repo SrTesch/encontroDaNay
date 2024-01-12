@@ -6,11 +6,13 @@ const eventoController = {
   getInfos: async (_req: Request, res: Response) => {
     try {
       console.log("Pegando dados do evento!");
-      const [evento]: Evento[] = await eventoServices.getInfos();
-      if (evento && evento.length > 0) {
+      const evento = await eventoServices.getInfos();
+      if (Array.isArray(evento) && evento.length > 0) {
         console.log("Dados pegos com sucesso!");
         return res.status(200).json(evento);
-      }
+      }else
+        return res.status(400).json({msg:"Não foi possivel encontrar o evento", evento: evento})
+      
     } catch (error) {
       console.log("Erro ao buscar informações do evento", error);
       return res.status(500).json({ msg: "Internal Server Error", error: error });
@@ -20,9 +22,9 @@ const eventoController = {
     try {
       console.log("Criando novo evento");
       const { dataHora, local, preço, nome } = req.body;
-      const eventInstance = new Evento(nome, preço, dataHora, local);
-      const result: any[] = await eventoServices.newEvent(eventInstance);
-      if (result && result.length > 0) {
+      const eventInstance = new Evento(0,nome, preço, dataHora, local);
+      const result = await eventoServices.newEvent(eventInstance);
+      if (Array.isArray(result) && result.length > 0) {
         console.log("Evento criado com sucesso! \nResultado da query: ", result);
         return res.status(201).json({ result: result, insertedData: eventInstance });
       }
