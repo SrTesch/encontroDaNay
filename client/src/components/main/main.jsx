@@ -77,13 +77,15 @@ export default function Main(props){
                 <div className={styles.eventoDiv}>
                     <h2 className="borel eventTitle">Próximo evento:</h2>
                     <p className={styles.eventInfos}>
+                        <span className="montserrat">
                         Data: 15/03 <br />
                         Horário: 18h <br />
                         Local: João Pessoa/PB <br />
                         Valor: R$40,00
+                        </span>
                     </p>
                 </div>
-                <p id="tobutton" className="roboto">Preencha agora o formulário para a lista de espera do conectadas 2024!</p>
+                <p id="tobutton" className="montserrat">Preencha agora o formulário para a lista de espera do conectadas 2024!</p>
                 <div className="buttonWppdiv">
                     <button onClick={showForm} className="buttonWpp">Inscreva-se</button>
                 </div>
@@ -147,7 +149,7 @@ export default function Main(props){
                 <p id="convencing" className="montserrat">A partir de agora você é convidado(a) a mergulhar no alívio e na cura das bagagens emocionais para que a viagem da sua vida, seja mais livre, mais leve, do jeito que você planejou e sonhou.</p>
             </section>
             </div>
-            <section>
+            <section className="montserrat">
                 <ul id="listinhaSexista">
                     <li>Todos de alguma forma ou em algum momento da vida, já acumularam algo nas emoções</li>
                     <li>E a delicadeza disso, é que, o que está mal resolvido dentro, CERTAMENTE TRAZ REFLEXOS PRA FORA.</li>
