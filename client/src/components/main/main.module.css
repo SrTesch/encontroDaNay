@@ -53,4 +53,10 @@
 .texto{
     color: var(--text);
     padding: 20px;
+    font-family: montSerrat;
+}
+
+@font-face {
+    font-family: montSerrat;
+    src: url(../public/Montserrat-Regular.ttf);
 }
