@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import fotoNay from '../images/nay1.png'
-
+import fotoNay from '../../images/nay1.png'
+import styles from "./main.module.css"
 export default function Main(props){
 
     const [form, setForm] = useState(false);
@@ -71,66 +71,67 @@ export default function Main(props){
         <main>
             <h1 className="montserrat title" style={{marginBottom: "15px"}}>Cura Emocional</h1>
             {/*<p className="borel nome">Nayara Tesch</p>*/}
+            <div className={styles.teste}>
             <section id="texts">
                 <p id="motivational" className="montserrat">Você não está sozinha!</p>
-                <p id="explanation" className="montserrat">Nosso projeto foi pensado exclusivamente para mulheres que não querem desistir. <br />Queremos ver você se tornar uma nova mulher, capaz de superar todas as barreiras e, finalmente, brilhar.</p>
+                <div className={styles.eventoDiv}>
+                    <h2 className="borel eventTitle">Próximo evento:</h2>
+                    <p className={styles.eventInfos}>
+                        Data: 15/03 <br />
+                        Horário: 18h <br />
+                        Local: João Pessoa/PB <br />
+                        Valor: R$40,00
+                    </p>
+                </div>
                 <p id="tobutton" className="roboto">Preencha agora o formulário para a lista de espera do conectadas 2024!</p>
                 <div className="buttonWppdiv">
                     <button onClick={showForm} className="buttonWpp">Inscreva-se</button>
                 </div>
                 {form && (
-                    <form onSubmit={handleInfos}>
-                        <label for="name">
-                            Nome
-                        </label>
+                    <form onSubmit={handleInfos} className={styles.formPart}>
                         <input
                         type="text"
+                        className={styles.inputForm}
                         placeholder="Digite seu nome"
-                        className="inputForm"
+                        // className="inputForm"
                         value={name}
                         id="name"
                         onChange={e => { setName(e.target.value)}}
                         required
                         />
-                        <label for="email">
-                            Email
-                        </label>
                         <input
                         type="text"
                         placeholder="Digite seu email"
-                        className="inputForm"
+                        className={styles.inputForm}
                         value={email}
                         id="email"
                         onChange={e => { setEmail(e.target.value)}}
                         required
                         />
-                        <label for="cpf">
-                            CPF
-                        </label>
-                            <input
-                            type="text"
-                            placeholder="Digite seu cpf"
-                            className="inputForm"
-                            value={cpf}
-                            id="cpf"
-                            onChange={e => { setCpf(e.target.value)}}
-                            required
-                            />
-                        <label for="prof">
-                            Profissão
-                        </label>
+                        <input
+                        type="text"
+                        placeholder="Digite seu cpf"
+                        className={styles.inputForm}
+                        value={cpf}
+                        id="cpf"
+                        onChange={e => { setCpf(e.target.value)}}
+                        required
+                        />
                         <input
                         type="text"
                         placeholder="Digite sua profissão"
-                        className="inputForm"
+                        className={styles.inputForm}
                         value={profissao}
                         id="prof"
                         onChange={e => { setProfissao(e.target.value)}}
                         required
                         />
                         <br />
-                        <button className="confirmButton">Enviar</button>
-                        
+                        <p className={styles.texto}>
+                        CHAVE PIX (e-mail): mulheresconectadasjp@gmail.com - (Colocar texto " seu nome / taxa de inscrição" no campo de observação do PIX) <br />
+                        Enviar comprovante de pagamento ao e-mail do evento: mulheresconectadasjp@gmail.com
+                        </p>
+                        <button className="confirmButton">Enviar Inscrição</button>
                     </form>
                 )}
                 {confirmation && (
@@ -138,24 +139,24 @@ export default function Main(props){
                     <div className="confirmationText" style={{backgroundColor: backColor}}>{resMessage}</div>
                 </div>
                 )}
+                <p id="explanation" className="montserrat">Nosso projeto foi pensado exclusivamente para mulheres que não querem desistir. <br />Queremos ver você se tornar uma nova mulher, capaz de superar todas as barreiras e, finalmente, brilhar.</p>
             </section>
 
             <section className="presentation">
                 <img src={fotoNay} alt="Foto Nayara Tesch" id="fotoNay"/>
-                <p id="convencing" className="montserrat">Problemas com autoestima, <br />desafios para empreender, <br />dificuldades em conciliar a vida pessoal e profissional... <br />Sabia que tudo isso é muito mais comum entre as mulheres?</p>
+                <p id="convencing" className="montserrat">A partir de agora você é convidado(a) a mergulhar no alívio e na cura das bagagens emocionais para que a viagem da sua vida, seja mais livre, mais leve, do jeito que você planejou e sonhou.</p>
             </section>
+            </div>
             <section>
                 <ul id="listinhaSexista">
-                    <li>20% das mulheres brasileiras sofrem com baixa autoestima</li>
-                    <li>A taxa de empreendedorismo entre mulheres é de 24,6%. Já a dos homens chega a 36,5%</li>
-                    <li>As mulheres abandonaram mais seus negócios e tiveram renda menor que os homens nos últimos 4 anos</li>
-                    <li>As startups e scale-ups brasileiras fundadas exclusivamente por mulheres são apenas 4,7% do total</li>
-                    <li>Dupla jornada faz mulheres trabalharem 3,1 horas a mais que homens</li>
-                    <li>O Brasil é o país com o maior número de realizações de cirurgias plásticas no mundo e os procedimentos em mulheres correspondem a quase 90% do total</li>
+                    <li>Todos de alguma forma ou em algum momento da vida, já acumularam algo nas emoções</li>
+                    <li>E a delicadeza disso, é que, o que está mal resolvido dentro, CERTAMENTE TRAZ REFLEXOS PRA FORA.</li>
+                    <li>Atitudes, hábitos ruins, decisões impulsivas e inconsequentes, são claramente resultados de bagagens emocionais acumuladas e carregadas ao longo da nossa história.</li>
+                    <li>A proposta e o propósito desse projeto é orientativa, esclarecedora e resulta na experiência extraordinária de libertação.</li>
                 </ul>
             </section>
             <section>
-                <p className="montserrat convencing2" >Por isso, precisamos ser mais fortes. <br />Precisamos assumir o protagonismo das nossas vidas. Precisamos despertar nossas habilidades, colocar nossos projetos em prática e conquistar nossa independência emocional e financeira!</p>
+                <p className="montserrat convencing2" >Por isso, precisamos ser mais fortes. <br />Precisamos assumir o protagonismo das nossas vidas. Precisamos despertar nossas habilidades, colocar nossos projetos em prática e conquistar nossa independência emocional!</p>
             </section>
         </main>
     )
