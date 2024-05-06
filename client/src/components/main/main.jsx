@@ -20,7 +20,7 @@ export default function Main(props){
     const createMessage =  () =>{
         const message = `Nome: ${name};
         CPF: ${cpf};
-        Email: ${email};
+        Número: ${email};
         Profissão: ${profissao}`;
         return message;
     }
@@ -102,7 +102,7 @@ export default function Main(props){
                         />
                         <input
                         type="text"
-                        placeholder="Digite seu email"
+                        placeholder="Digite seu número WhatsApp"
                         className={styles.inputForm}
                         value={email}
                         id="email"
@@ -128,10 +128,10 @@ export default function Main(props){
                         required
                         />
                         <br />
-                        <p className={styles.texto}>
+                        {/* <p className={styles.texto}>
                         CHAVE PIX (e-mail): mulheresconectadasjp@gmail.com - (Colocar texto " seu nome / taxa de inscrição" no campo de observação do PIX) <br />
                         Enviar comprovante de pagamento ao e-mail do evento: mulheresconectadasjp@gmail.com
-                        </p>
+                        </p> */}
                         <button className="confirmButton">Enviar Inscrição</button>
                     </form>
                 )}
