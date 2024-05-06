@@ -78,10 +78,9 @@ export default function Main(props){
                     <h2 className="borel eventTitle">Próximo evento:</h2>
                     <p className={styles.eventInfos}>
                         <span className="montserrat">
-                        Data: 15/03 <br />
-                        Horário: 18h <br />
-                        Local: João Pessoa/PB <br />
-                        Valor: R$40,00
+                        Data: em Julho <br />
+                        Local: Rio de Janeiro/RJ <br />
+                        Valor: R$50,00
                         </span>
                     </p>
                 </div>
