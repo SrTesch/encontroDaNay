@@ -263,3 +263,27 @@ footer{
 .borel{
   font-family: borel;
 }
+
+#over{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  text-align: center;
+}
+
+.homebuttons{
+  text-decoration: none;
+  color: var(--cor0);
+  background-color: var(--cor6);
+  padding: 10px;
+  border-radius: 15px;
+  width: 200px;
+  transition-duration: .3s;
+}
+
+.homebuttons:hover{
+  background-color: var(--cor3);
+}

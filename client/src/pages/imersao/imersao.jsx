@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import fotoNay from '../../images/nay1.png'
+import fotoNay from '../../images/nay2.png'
 import styles from "./main.module.css"
-export default function Main(props){
+import Header from "./header2";
+import Footer from "../mulCon/footer";
+import logo from "../../images/logoImersao2.png"
 
+export default function Main(props){
     const [form, setForm] = useState(false);
     const [confirmation, setConfirmation] = useState(false);
     const [resMessage, setResMessage] = useState('');
@@ -69,22 +72,23 @@ export default function Main(props){
 
     return(
         <main>
-            <h1 className="montserrat title" style={{marginBottom: "15px"}}>Cura Emocional</h1>
+            <Header logo={logo} description="Logo da imersão da Nay"/>
+            <h1 className="montserrat title" style={{marginBottom: "15px"}}>Liberdade Emocional</h1>
             {/*<p className="borel nome">Nayara Tesch</p>*/}
             <div className={styles.teste}>
             <section id="texts">
                 <p id="motivational" className="montserrat">Você não está sozinha!</p>
                 <div className={styles.eventoDiv}>
-                    <h2 className="borel eventTitle">Próximo evento:</h2>
+                    <h2 className="borel eventTitle">Imersão:</h2>
                     <p className={styles.eventInfos}>
                         <span className="montserrat">
-                        Data: em Julho <br />
-                        Local: Rio de Janeiro/RJ <br />
-                        Valor: R$50,00
+                        Data: 27/05 <br />
+                        Reunião online pelo Meet <br />
+                        Valor: R$30,00
                         </span>
                     </p>
                 </div>
-                <p id="tobutton" className="montserrat">Preencha agora o formulário para a lista de espera do conectadas 2024!</p>
+                <p id="tobutton" className="montserrat">Preencha agora o formulário para a inscrição!</p>
                 <div className="buttonWppdiv">
                     <button onClick={showForm} className="buttonWpp">Inscreva-se</button>
                 </div>
@@ -131,7 +135,7 @@ export default function Main(props){
                         {/* <p className={styles.texto}>
                         CHAVE PIX (e-mail): mulheresconectadasjp@gmail.com - (Colocar texto " seu nome / taxa de inscrição" no campo de observação do PIX) <br />
                         Enviar comprovante de pagamento ao e-mail do evento: mulheresconectadasjp@gmail.com
-                        </p> */}
+                    </p> */}
                         <button className="confirmButton">Enviar Inscrição</button>
                     </form>
                 )}
@@ -140,25 +144,30 @@ export default function Main(props){
                     <div className="confirmationText" style={{backgroundColor: backColor}}>{resMessage}</div>
                 </div>
                 )}
-                <p id="explanation" className="montserrat">Nosso projeto foi pensado exclusivamente para mulheres que não querem desistir. <br />Queremos ver você se tornar uma nova mulher, capaz de superar todas as barreiras e, finalmente, brilhar.</p>
+                <p id="explanation" className="montserrat">Tratar a dependência emocional é importante porque pode afetar negativamente todas as áreas da vida, desde relacionamentos até a saúde mental. Ajuda a promover a independência emocional, fortalecer a autoestima e construir relacionamentos mais saudáveis e equilibrados.</p>
             </section>
 
             <section className="presentation">
                 <img src={fotoNay} alt="Foto Nayara Tesch" id="fotoNay"/>
-                <p id="convencing" className="montserrat">A partir de agora você é convidado(a) a mergulhar no alívio e na cura das bagagens emocionais para que a viagem da sua vida, seja mais livre, mais leve, do jeito que você planejou e sonhou.</p>
+                <p id="convencing" className="montserrat">A partir de agora você tem a oportunidade de se enriquecer de conhecimentos e ferramentas para ter um relacionamento mais leve, livre daquilo que não te deixa ser feliz genuinamente!</p>
             </section>
             </div>
             <section className="montserrat">
                 <ul id="listinhaSexista">
-                    <li>Todos de alguma forma ou em algum momento da vida, já acumularam algo nas emoções</li>
-                    <li>E a delicadeza disso, é que, o que está mal resolvido dentro, CERTAMENTE TRAZ REFLEXOS PRA FORA.</li>
-                    <li>Atitudes, hábitos ruins, decisões impulsivas e inconsequentes, são claramente resultados de bagagens emocionais acumuladas e carregadas ao longo da nossa história.</li>
-                    <li>A proposta e o propósito desse projeto é orientativa, esclarecedora e resulta na experiência extraordinária de libertação.</li>
+                    <li>Iremos tratar 10 tópicos que farão diferença na tua vida!</li>
+                    <li><strong>1. Autoconhecimento:</strong> Entenda suas próprias necessidades, desejos e limites emocionais.</li>
+                    <li><strong>2. Estabeleça limites saudáveis:</strong> Aprenda a dizer não quando necessário e a não permitir que os outros manipulem suas emoções.</li>
+                    <li><strong>3. Cultive sua independência:</strong> Desenvolva hobbies, interesses e amizades fora do relacionamento para fortalecer sua identidade pessoal.</li>
+                    <li><strong>4. Terapia:</strong> Considere a terapia individual ou em grupo para explorar questões emocionais e desenvolver habilidades para lidar com elas de forma saudável.</li>
+                    <li><strong>5. Pratique o autocuidado:</strong> Dedique tempo para cuidar de si mesmo, seja através do exercício físico, meditação, hobbies relaxantes ou qualquer outra atividade que o faça sentir-se bem.</li>
+                    <li><strong>6. Aprenda a ser feliz com você mesmo:</strong> Cultive uma relação positiva consigo mesmo e aprenda a encontrar a felicidade independente do seu relacionamento com os outros.</li>
+                    <li><strong>7. Estabeleça relações saudáveis:</strong> Procure relacionamentos baseados no respeito mútuo, apoio emocional e comunicação aberta.</li>
+                    <li><strong>8. Se afaste de relacionamentos tóxicos:</strong> Reconheça quando um relacionamento é prejudicial para você e tenha coragem para se afastar, se necessário.</li>
+                    <li><strong>9. Desenvolva habilidades de comunicação:</strong> Aprenda a expressar suas necessidades, desejos e preocupações de maneira clara e assertiva.</li>
+                    <li><strong>10. Persistência e paciência:</strong> O processo de se livrar da dependência emocional pode levar tempo e esforço, então seja gentil consigo mesmo durante o processo.</li>
                 </ul>
             </section>
-            <section>
-                <p className="montserrat convencing2" >Por isso, precisamos ser mais fortes. <br />Precisamos assumir o protagonismo das nossas vidas. Precisamos despertar nossas habilidades, colocar nossos projetos em prática e conquistar nossa independência emocional!</p>
-            </section>
+            <Footer logo={logo}/>
         </main>
     )
 }

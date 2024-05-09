@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../components/footer";
-import Header from "../components/header";
+import Footer from "./mulCon/footer";
+import Header from "./mulCon/header";
 import AdmComp from "../components/admComp/AdmComp";
 
 export default function Adm(props){
